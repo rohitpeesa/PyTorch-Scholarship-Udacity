@@ -18,7 +18,7 @@
     ```
 
 3. Cross Entropy
-    * [Code]()
+    * [Code](https://github.com/jacobjohn2016/PyTorch-Scholarship-Udacity/blob/master/cross_entropy.py)
     ```Python
     Trying for Y=[1,0,1,1] and P=[0.4,0.6,0.1,0.5].
     The correct answer is

@@ -16,7 +16,22 @@ def prediction(X, W, b):
 # update the weights and bias W, b, according to the perceptron algorithm,
 # and return W and b.
 def perceptronStep(X, y, W, b, learn_rate = 0.01):
-    # Fill in code
+    # Do this for all misclassified points
+    for i in range(len(X)):
+        #Calculate prediction based on step function
+        y_hat = prediction(X[i],W,b)
+        #if label is positive (1) but misclassified as negative (0)
+        if y[i] == 1 and y_hat == 0:
+            #then move line closer towards point, making positive area "larger"
+            W[0] += learn_rate*X[i][0]
+            W[1] += learn_rate*X[i][1]
+            b += learn_rate
+        #if label is negative (0) but misclassified as positive (1)
+        elif y[i] == 0 and y_hat == 1:
+            #then move line closer towards point, making negative area "larger"
+            W[0] -= learn_rate*X[i][0]
+            W[1] -= learn_rate*X[i][1]
+            b -= learn_rate
     return W, b
     
 # This function runs the perceptron algorithm repeatedly on the dataset,
